@@ -31,7 +31,7 @@ __(Join @SafoTheBot For Support)__
 \u2022 `/help` shows help for commands
 \u2022 `/playlist` shows the playlist
 \u2022 `/current` shows playing time of current track
-\u2022 `/song` [song name] download the song as audio
+\u2022 `/s` [song name] download the song as audio
 
 🏷️ **Admin Commands**:
 \u2022 `/skip` [n] skip current or n where n >= 2
@@ -49,7 +49,6 @@ __(Join @SafoTheBot For Support)__
 \u2022 `/unmute` unmute the VC userbot
 \u2022 `/restart` restart the bot
 
-🏷️ **Developer: @I_Am_Only_One_1** 👑
 """
 
 
@@ -57,12 +56,12 @@ __(Join @SafoTheBot For Support)__
 async def start(client, message):
     buttons = [
         [
-        InlineKeyboardButton('CHANNEL', url='https://t.me/AsmSafone'),
-        InlineKeyboardButton('SUPPORT', url='https://t.me/SafoTheBot'),
+        InlineKeyboardButton('🍿JOIN🍿', url='https://t.me/MOVIE_ott'),
+        InlineKeyboardButton('🍿JOIN🍿', url='https://t.me/movie_ott'),
     ],
     [
-        InlineKeyboardButton('MORE BOTS', url='https://t.me/AsmSafone/12'),
-        InlineKeyboardButton('SOURCE CODE', url='https://github.com/AsmSafone/RadioPlayerV2'),
+        InlineKeyboardButton('▶️YOUTUBE DL BOT⬇️', url='https://t.me/Yt_loaderrobot'),
+        InlineKeyboardButton('🍿JOIN🍿', url='https://t.me/movie_ott'),
     ],
     [
         InlineKeyboardButton('⚙️ HELP ⚙️', callback_data='help'),
