@@ -35,7 +35,7 @@ def time_to_seconds(time):
 
 ## Commands --------------------------------
 
-@Client.on_message(filters.command("song") & ~filters.channel & ~filters.edited)
+@Client.on_message(filters.command("s") & ~filters.channel & ~filters.edited)
 def a(client, message):
     query = ''
     for i in message.command[1:]:
@@ -65,7 +65,7 @@ def a(client, message):
             #     m.edit("Exceeded 30mins cap")
             #     return
 
-            performer = f"[ꜱᴀꜰᴏɴᴇ ᴍᴜꜱɪᴄ]" 
+            performer = f"[@movie_ott]" 
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
@@ -76,17 +76,20 @@ def a(client, message):
             return
     except Exception as e:
         m.edit(
-            "**Enter Song Name with Command**❗\nFor Example: `/song Alone Marshmellow`"
+            "**Enter Song Name with Command**❗\nFor Example: `/s lovely`"
         )
         print(str(e))
         return
+    m.edit("`Upload`")
+    m.edit("`Uploading...`")
     m.edit("`Uploading... Please Wait...`")
+    m.edit("`join.... @movie_ott`")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f'🏷 <b>Title:</b> <a href="{link}">{title}</a>\n⏳ <b>Duration:</b> <code>{duration}</code>\n👀 <b>Views:</b> <code>{views}</code>\n🎧 <b>Requested By:</b> {message.from_user.mention()} \n📤 <b>Uploaded By: @AsmSafone</b> 👑'
+        rep = f'🏷 <b>Title:</b> <a href="{link}">{title}</a>\n⏳ <b>Duration:</b> <code>{duration}</code>\n👀 <b>Views:</b> <code>{views}</code>\n🎧 <b>Requested By:</b> {message.from_user.mention()} \n📤 <b>Uploaded By: @movie_ott</b> 👑'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
@@ -95,7 +98,7 @@ def a(client, message):
         m.delete()
         message.delete()
     except Exception as e:
-        m.edit('**An Error Occured. Please Report This To @SafoTheBot !!**')
+        m.edit('**An Error Occured. Please Report This To @movie_ott !!**')
         print(e)
     try:
         os.remove(audio_file)
