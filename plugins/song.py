@@ -83,7 +83,7 @@ def a(client, message):
     m.edit("`Upload`")
     m.edit("`Uploading...`")
     m.edit("`Uploading... Please Wait...`")
-    m.edit("`join.... @movie_ott`")
+    m.edit("join.... @movie_ott")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
